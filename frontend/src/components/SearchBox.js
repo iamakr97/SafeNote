@@ -1,10 +1,12 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, TextInput, View, TouchableOpacity, Image } from 'react-native';
 
 const SearchBox = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.iconContainer}>
+      <TouchableOpacity style={styles.iconContainer} onPress={()=>navigation.navigate("User")}>
         <Image
           source={require('../assets/profile.png')}
           style={styles.icon}

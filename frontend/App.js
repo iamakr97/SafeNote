@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CreateNote from './src/screens/CreateNote';
 import ShowNote from './src/screens/ShowNote';
+import User from './src/screens/User';
+import AllLabels from './src/screens/AllLabels';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +39,24 @@ const App = () => {
                     options={{
                         headerShown: true, 
                         title: 'Note', 
+                        headerStyle: { backgroundColor: '#ff8856' }, 
+                        headerTintColor: '#fff', 
+                        headerTitleStyle: { fontWeight: 'bold' },
+                    }}
+                />
+                <Stack.Screen name='User' component={User}
+                    options={{
+                        headerShown: true, 
+                        title: 'My Account', 
+                        headerStyle: { backgroundColor: '#ff8856' }, 
+                        headerTintColor: '#fff', 
+                        headerTitleStyle: { fontWeight: 'bold' },
+                    }}
+                />
+                <Stack.Screen name='AllLabels' component={AllLabels}
+                    options={{
+                        headerShown: true, 
+                        title: 'All Labels', 
                         headerStyle: { backgroundColor: '#ff8856' }, 
                         headerTintColor: '#fff', 
                         headerTitleStyle: { fontWeight: 'bold' },
