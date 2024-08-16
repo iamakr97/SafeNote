@@ -2,25 +2,38 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 
 const ShowNote = ({ route, navigation }) => {
-  const { title, description } = route.params; // Access note data passed via props
+  const { title, content, isPrivate, createdAt } = route.params; // Access note data passed via props
 
   const handleEdit = () => {
     // Navigate to the edit screen with the note data
-    navigation.navigate('EditNote', { title, description });
+    navigation.navigate('EditNote', { title, content, isPrivate, createdAt });
   };
 
   const handleDelete = () => {
     // Handle delete note logic here
     alert('Note deleted!');
-    // After deletion, you might want to navigate back or refresh the notes list
     navigation.goBack();
+  };
+
+  // Format the created date and time
+  const formatDate = (date) => {
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    };
+    return new Date(date).toLocaleDateString('en-US', options);
   };
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.content}>{content}</Text>
+        <Text style={styles.metadata}>Created on: {formatDate(createdAt)}</Text>
       </ScrollView>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handleEdit}>
@@ -50,10 +63,15 @@ const styles = StyleSheet.create({
     color: '#000',
     marginBottom: 10,
   },
-  description: {
+  content: {
     fontSize: 16,
     color: '#333',
     lineHeight: 24,
+  },
+  metadata: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -72,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   deleteButton: {
-    backgroundColor: '#f44336',
+    backgroundColor: '#d3d3d3', // Light gray for delete button
   },
   buttonText: {
     color: '#fff',
