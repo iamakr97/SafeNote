@@ -12,16 +12,16 @@ const App = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName='Home'
+                initialRouteName="Home"
                 screenOptions={{
                     headerShown: false,
                     animation: 'slide_from_right',
                     gestureEnabled: true,
                 }}
             >
-                <Stack.Screen name='Home' component={Home} />
-                <Stack.Screen name='Signup' component={Signup} />
-                <Stack.Screen name='Login' component={Login} />
+                <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="Signup" component={Signup} />
+                <Stack.Screen name="Login" component={Login} />
             </Stack.Navigator>
         </NavigationContainer>
     );
