@@ -1,33 +1,26 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { notes } from './data';
 
 const NoteCard = () => {
-  const notes = [
-    { id: '1', title: 'Grocery List', desc: 'Buy milk, eggs, bread, and fruits.' },
-    { id: '2', title: 'Meeting Notes', desc: 'Discuss project milestones and deadlines.' },
-    { id: '3', title: 'Travel Plans', desc: 'Book flights and hotels for the upcoming trip.' },
-    { id: '4', title: 'Workout Routine', desc: 'Morning yoga, afternoon gym, and evening walk.' },
-    { id: '5', title: 'Ideas for Blog', desc: 'Write about tech trends, programming tips, and personal experiences.' },
-    { id: '6', title: 'Reading List', desc: 'Finish reading "Clean Code" and "The Pragmatic Programmer".' },
-    { id: '7', title: 'Dinner Recipe', desc: 'Prepare lasagna with garlic bread and a side salad.' },
-    { id: '8', title: 'Project Tasks', desc: 'Complete UI design and implement authentication.' },
-    { id: '9', title: 'Weekend Activities', desc: 'Hike in the morning, visit museum in the afternoon.' },
-    { id: '10', title: 'Shopping List', desc: 'Buy new shoes, get a haircut, and pick up dry cleaning.' },
-    { id: '11', title: 'Event Planning', desc: 'Organize the office party and send invitations.' },
-    { id: '12', title: 'Vacation Packing', desc: 'Pack clothes, toiletries, and travel documents for the trip.' },
-    { id: '13', title: 'Movie Watchlist', desc: 'Watch "Inception", "The Matrix", and "Interstellar".' },
-    { id: '14', title: 'Daily Routine', desc: 'Wake up early, exercise, work, and relax in the evening.' },
-    { id: '15', title: 'Personal Goals', desc: 'Learn a new language and complete a marathon.' },
-  ];
+  const navigation = useNavigation();
 
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.row}>
         {notes.map((note) => (
-          <TouchableOpacity key={note.id} style={styles.card}>
+          <TouchableOpacity
+            key={note.id}
+            style={styles.card}
+            onPress={() => navigation.navigate('Note', {
+              title: note.title,
+              description: note.desc,
+            })}
+          >
             <Text style={styles.title}>{note.title}</Text>
-            <Text style={styles.desc}>{note.desc}</Text>
+            <Text style={styles.desc} numberOfLines={2}>{note.desc}</Text>
           </TouchableOpacity>
         ))}
       </View>

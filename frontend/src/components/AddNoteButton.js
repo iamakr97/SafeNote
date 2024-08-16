@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const AddNoteButton = () => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.button} onPress={() => alert('Add a new note')}>
+    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateNote')}>
       <View style={styles.innerCircle}>
         <Text style={styles.plusText}>+</Text>
       </View>
@@ -20,8 +22,8 @@ const styles = StyleSheet.create({
     right: 20,
     width: 60,
     height: 60,
-    borderRadius: 30, 
-    elevation: 5, 
+    borderRadius: 30,
+    elevation: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,

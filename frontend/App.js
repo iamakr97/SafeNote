@@ -5,6 +5,8 @@ import Login from './src/screens/Login';
 import Home from './src/screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import CreateNote from './src/screens/CreateNote';
+import ShowNote from './src/screens/ShowNote';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +24,24 @@ const App = () => {
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Signup" component={Signup} />
                 <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name='CreateNote' component={CreateNote}
+                    options={{
+                        headerShown: true, 
+                        title: 'Create Note', 
+                        headerStyle: { backgroundColor: '#1a73e8' }, 
+                        headerTintColor: '#fff', 
+                        headerTitleStyle: { fontWeight: 'bold' },
+                    }}
+                />
+                <Stack.Screen name='Note' component={ShowNote}
+                    options={{
+                        headerShown: true, 
+                        title: 'Note', 
+                        headerStyle: { backgroundColor: '#1a73e8' }, 
+                        headerTintColor: '#fff', 
+                        headerTitleStyle: { fontWeight: 'bold' },
+                    }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
