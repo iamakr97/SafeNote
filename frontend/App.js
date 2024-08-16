@@ -28,7 +28,7 @@ const App = () => {
                     options={{
                         headerShown: true, 
                         title: 'Create Note', 
-                        headerStyle: { backgroundColor: '#1a73e8' }, 
+                        headerStyle: { backgroundColor: '#ff8856' }, 
                         headerTintColor: '#fff', 
                         headerTitleStyle: { fontWeight: 'bold' },
                     }}
@@ -37,7 +37,7 @@ const App = () => {
                     options={{
                         headerShown: true, 
                         title: 'Note', 
-                        headerStyle: { backgroundColor: '#1a73e8' }, 
+                        headerStyle: { backgroundColor: '#ff8856' }, 
                         headerTintColor: '#fff', 
                         headerTitleStyle: { fontWeight: 'bold' },
                     }}

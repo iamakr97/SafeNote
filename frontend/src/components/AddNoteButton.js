@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   plusText: {
     fontSize: 36,
-    color: '#333',
+    color: '#ff8856',
     fontWeight: 'bold',
   },
 });
